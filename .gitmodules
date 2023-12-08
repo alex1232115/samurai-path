@@ -1,0 +1,6 @@
+[submodule "techonologies/JavaEE"]
+	path = techonologies/JavaEE
+	url = https://github.com/alex1232115/JavaEE.git
+[submodule "techonologies/Spring"]
+	path = techonologies/Spring
+	url = https://github.com/alex1232115/Spring.git
