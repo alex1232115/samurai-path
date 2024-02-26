@@ -1,11 +1,12 @@
 package seabattle;
 
 public class HumanPlayer implements Player{
-    private String name;
-    private Board board;
+    private final String name;
+    private final Board board;
 
-    public HumanPlayer(String name) {
+    public HumanPlayer(String name, Board board) {
         this.name = name;
+        this.board = board;
     }
 
     public String getName() {
@@ -13,13 +14,7 @@ public class HumanPlayer implements Player{
     }
 
     @Override
-    public void makeMove(Position position) {
-
-    }
-
-    protected void setBoard(Board boardPlayer1) {
-        board = boardPlayer1;
-    }
+    public void makeMove(Position position) {}
 
     protected Board getBoard() {
         return board;

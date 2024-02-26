@@ -1,10 +1,11 @@
 package seabattle;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Board {
     private Box[][] gameField;
+    private final int MIN_COORD = 0;
+    private final int MAX_COORD = 9;
 
     public Board(int size) {
         gameField = new Box[size][size];
@@ -13,10 +14,22 @@ public class Board {
         }
     }
 
-    public void fillBoardByHuman() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите координаты 4-х палубоного корабля (формат: x,y;x,y;x,y;x,y)");
-        String line = scanner.nextLine();
-        //TODO доделать метод заполнения игрового поля
+    public void setShipCoords(String coordsInput, Ship ship) {
+
+        //TODO метод соотнесения координат
+        switch (ship) {
+            case BATTLESHIP -> {
+
+            }
+            case CRUISER -> {
+
+            }
+            case DESTROYER -> {
+
+            }
+            case TORPEDO_BOAT -> {
+
+            }
+        }
     }
 }
