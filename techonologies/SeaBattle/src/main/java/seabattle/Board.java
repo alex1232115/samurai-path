@@ -14,9 +14,8 @@ public class Board {
         }
     }
 
-    public void setShipCoords(String coordsInput, Ship ship) {
-
-        //TODO метод соотнесения координат
+    public void setShipCoords(int[] coords, Ship ship) {
+        //TODO метод №3
         switch (ship) {
             case BATTLESHIP -> {
 

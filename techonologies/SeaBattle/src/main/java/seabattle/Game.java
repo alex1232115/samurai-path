@@ -44,26 +44,79 @@ public class Game {
         initPlayerBoard(board1);
         System.out.println("Сейчас очередь игрока №2: " + player2.getName() + "Игрок №1, не смотри!");
         initPlayerBoard(board2);
-
         gameState = GameState.PLAYED;
     }
 
     private void initPlayerBoard(Board board) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите координаты 4-х палубоного корабля (формат: x,y;x,y;x,y;x,y)");
-        board.setShipCoords(scanner.nextLine(), Ship.BATTLESHIP);
+        initShip(board, Ship.BATTLESHIP, 1);
         for (int i = 0; i < 2; i++) {
-            System.out.println("Введите координаты" + i + 1 + "-го 3-х палубоного корабля (формат: x,y;x,y;x,y;)");
-            board.setShipCoords(scanner.nextLine(), Ship.CRUISER);
+            initShip(board, Ship.CRUISER, i);
         }
         for (int i = 0; i < 3; i++) {
-            System.out.println("Введите координаты" + i + 1 + "-го 2-х палубоного корабля (формат: x,y;x,y;)");
-            board.setShipCoords(scanner.nextLine(), Ship.DESTROYER);
+            initShip(board, Ship.DESTROYER, i);
         }
         for (int i = 0; i < 4; i++) {
-            System.out.println("Введите координаты " + i + 1 + "-го однопалубоного корабля (формат: x,y;)");
-            board.setShipCoords(scanner.nextLine(), Ship.TORPEDO_BOAT);
+            initShip(board, Ship.TORPEDO_BOAT, i);
         }
+    }
+
+
+    //TODO переделать пиздец
+    private void initShip(Board board, Ship ship, int num) {
+        Scanner scanner = new Scanner(System.in);
+        switch (ship) {
+            case BATTLESHIP -> {
+                while (true) {
+                    System.out.println("Введите координаты 4-х палубоного корабля (формат: x,y;x,y;x,y;x,y)");
+                    String input = scanner.nextLine();
+                    if (checkCorrectInput(input)) {
+                        board.setShipCoords(convertCoords(input), ship);
+                        break;
+                    }
+                }
+            }
+            case CRUISER -> {
+                while (true) {
+                    System.out.println("Введите координаты " + (num + 1) + "-го 3-х палубоного корабля (формат: x,y;x,y;x,y;)");
+                    String input = scanner.nextLine();
+                    if (checkCorrectInput(input)) {
+                        board.setShipCoords(convertCoords(input), ship);
+                        break;
+                    }
+                }
+            }
+            case DESTROYER -> {
+                while (true) {
+                    System.out.println("Введите координаты " + (num + 1) + "-го 2-х палубоного корабля (формат: x,y;x,y;)");
+                    String input = scanner.nextLine();
+                    if (checkCorrectInput(input)) {
+                        board.setShipCoords(convertCoords(input), ship);
+                        break;
+                    }
+                }
+            }
+            case TORPEDO_BOAT -> {
+                while (true) {
+                    System.out.println("Введите координаты " + (num + 1) + "-го однопалубоного корабля (формат: x,y;)");
+                    String input = scanner.nextLine();
+                    if (checkCorrectInput(input)) {
+                        board.setShipCoords(convertCoords(input), ship);
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+
+    private int[] convertCoords(String input) {
+        //TODO метод №1
+        return null;
+    }
+
+    private boolean checkCorrectInput(String input) {
+        //TODO метод №2
+        return true;
     }
 
     public GameState getGameState() {
