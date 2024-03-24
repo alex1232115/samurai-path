@@ -1,5 +1,7 @@
 package seabattle;
 
+import seabattle.ships.Battleship;
+
 import java.util.Scanner;
 
 public class Game {
@@ -48,6 +50,7 @@ public class Game {
     }
 
     private void initPlayerBoard(Board board) {
+        Battleship battleship = new Battleship();
         initShip(board, Ship.BATTLESHIP, 1);
         for (int i = 0; i < 2; i++) {
             initShip(board, Ship.CRUISER, i);
@@ -61,7 +64,7 @@ public class Game {
     }
 
 
-    //TODO переделать пиздец
+    //TODO переделать этот пиздец https://proglib.io/p/udalite-iz-koda-if-else-i-switch-case-2021-06-02
     private void initShip(Board board, Ship ship, int num) {
         Scanner scanner = new Scanner(System.in);
         switch (ship) {
@@ -69,7 +72,7 @@ public class Game {
                 while (true) {
                     System.out.println("Введите координаты 4-х палубоного корабля (формат: x,y;x,y;x,y;x,y)");
                     String input = scanner.nextLine();
-                    if (checkCorrectInput(input)) {
+                    if (checkCorrectInput(input, ship)) {
                         board.setShipCoords(convertCoords(input), ship);
                         break;
                     }
@@ -79,7 +82,7 @@ public class Game {
                 while (true) {
                     System.out.println("Введите координаты " + (num + 1) + "-го 3-х палубоного корабля (формат: x,y;x,y;x,y;)");
                     String input = scanner.nextLine();
-                    if (checkCorrectInput(input)) {
+                    if (checkCorrectInput(input, ship)) {
                         board.setShipCoords(convertCoords(input), ship);
                         break;
                     }
@@ -89,7 +92,7 @@ public class Game {
                 while (true) {
                     System.out.println("Введите координаты " + (num + 1) + "-го 2-х палубоного корабля (формат: x,y;x,y;)");
                     String input = scanner.nextLine();
-                    if (checkCorrectInput(input)) {
+                    if (checkCorrectInput(input, ship)) {
                         board.setShipCoords(convertCoords(input), ship);
                         break;
                     }
@@ -99,7 +102,7 @@ public class Game {
                 while (true) {
                     System.out.println("Введите координаты " + (num + 1) + "-го однопалубоного корабля (формат: x,y;)");
                     String input = scanner.nextLine();
-                    if (checkCorrectInput(input)) {
+                    if (checkCorrectInput(input, ship)) {
                         board.setShipCoords(convertCoords(input), ship);
                         break;
                     }
@@ -114,8 +117,9 @@ public class Game {
         return null;
     }
 
-    private boolean checkCorrectInput(String input) {
+    private boolean checkCorrectInput(String input, Ship ship) {
         //TODO метод №2
+
         return true;
     }
 

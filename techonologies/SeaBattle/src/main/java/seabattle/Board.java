@@ -14,21 +14,8 @@ public class Board {
         }
     }
 
-    public void setShipCoords(int[] coords, Ship ship) {
+    public void setShipCoords(Ship ship) {
         //TODO метод №3
-        switch (ship) {
-            case BATTLESHIP -> {
 
-            }
-            case CRUISER -> {
-
-            }
-            case DESTROYER -> {
-
-            }
-            case TORPEDO_BOAT -> {
-
-            }
-        }
     }
 }
